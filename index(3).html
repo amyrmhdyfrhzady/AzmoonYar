@@ -1,0 +1,2648 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f8fc" />
+    <meta name="color-scheme" content="light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+    <title>آزمون‌یار | آزمون تستی هوشمند</title>
+    <style>
+      .b2s {
+        margin-top: 30px !important;
+        max-width: unset !important;
+      }
+      :root {
+        color-scheme: light;
+        --bg: #f6f7fb;
+        --card: #fff;
+        --ink: #172033;
+        --muted: #697386;
+        --line: #e6e9f1;
+        --primary: #5b5ce2;
+        --primary2: #4647c7;
+        --soft: #eeeeff;
+        --green: #16865c;
+        --green-bg: #e8f8f0;
+        --red: #c63e4c;
+        --red-bg: #fff0f1;
+        --orange: #ed8a19;
+        --orange-bg: #fff2df;
+        --shadow: 0 14px 38px rgba(30, 40, 80, 0.07);
+        --radius: 22px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(ellipse at top right, #eef0ff 0, transparent 38%),
+          var(--bg);
+        font-family: "Vazirmatn", "Segoe UI", Tahoma, Arial, sans-serif;
+        color: var(--ink);
+        line-height: 1.7;
+      }
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible {
+        outline: 3px solid #aaaaff;
+        outline-offset: 2px;
+      }
+      .hidden {
+        display: none !important;
+      }
+      .app {
+        max-width: 1440px;
+        margin: auto;
+        padding: 22px clamp(12px, 2.6vw, 34px) 38px;
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brandmark {
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #6d6df4, #4d4fc9);
+        color: #fff;
+        font-size: 25px;
+        box-shadow: 0 9px 22px #5557d633;
+        line-height: 52px;
+      }
+      .brand h1 {
+        font-size: 20px;
+        line-height: 1.2;
+        margin: 0;
+      }
+      .brand p {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 5px 0 0;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        background: #fff;
+        border: 1px solid var(--line);
+        padding: 7px 12px;
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #27b47e;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid rgba(226, 230, 241, 0.9);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+      .welcome {
+        max-width: 920px;
+        margin: 30px auto;
+      }
+      .hero {
+        padding: clamp(22px, 4vw, 42px);
+        background: linear-gradient(130deg, #fff 15%, #f2f2ff 100%);
+        overflow: hidden;
+        position: relative;
+      }
+      .hero:after {
+        content: "";
+        position: absolute;
+        left: -48px;
+        top: -65px;
+        width: 230px;
+        height: 230px;
+        border-radius: 50%;
+        background: #dedfff88;
+        pointer-events: none;
+      }
+      .eyebrow {
+        font-size: 22px;
+        font-weight: bold;
+        color: var(--primary);
+        letter-spacing: 0.2px;
+      }
+      .hero h2 {
+        font-size: clamp(26px, 4vw, 38px);
+        line-height: 1.4;
+        margin: 10px 0 12px;
+        max-width: 650px;
+      }
+      .hero p {
+        color: var(--muted);
+        margin: 0;
+        max-width: 690px;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin: 18px 0;
+      }
+      .step {
+        padding: 17px;
+        border: 1px solid var(--line);
+        border-radius: 17px;
+        background: #fff;
+      }
+      .stepnum {
+        display: grid;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        background: var(--soft);
+        color: var(--primary);
+        font-weight: bold;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+      .step h3 {
+        font-size: 14px;
+        margin: 0 0 5px;
+      }
+      .step p {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 0;
+      }
+      .panel {
+        padding: clamp(18px, 3vw, 28px);
+        margin-top: 16px;
+      }
+      .panel h3 {
+        margin: 0 0 5px;
+        font-size: 18px;
+      }
+      .subtext {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .upload-zone {
+        border: 1.5px dashed #b9bdf0;
+        border-radius: 18px;
+        background: #fafaff;
+        padding: 25px 18px;
+        text-align: center;
+        transition: 0.2s;
+      }
+      .upload-zone.drag {
+        background: #eeeeff;
+        border-color: var(--primary);
+      }
+      .upload-icon {
+        font-size: 34px;
+      }
+      .upload-zone h4 {
+        margin: 6px 0;
+        font-size: 16px;
+      }
+      .upload-zone p {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 0 0 14px;
+      }
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .btn {
+        border: 0;
+        border-radius: 13px;
+        padding: 11px 16px;
+        font-weight: bold;
+        font-size: 13px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition:
+          transform 0.15s,
+          background 0.15s;
+      }
+      .btn:active {
+        transform: scale(0.98);
+      }
+      .btn.primary {
+        background: var(--primary);
+        color: #fff;
+      }
+      .btn.primary:hover {
+        background: var(--primary2);
+      }
+      .btn.secondary {
+        background: #f0f1f7;
+        color: #333c51;
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--muted);
+        border: 1px solid var(--line);
+      }
+      .btn.danger {
+        background: var(--red-bg);
+        color: var(--red);
+      }
+      .btn:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+      .file-summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding: 13px 15px;
+        background: #f7f8fc;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        margin-top: 14px;
+        font-size: 13px;
+      }
+      .file-summary strong {
+        font-size: 13px;
+      }
+      .settings-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .field label {
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 7px;
+      }
+      .field .hint {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: normal;
+        margin-top: 3px;
+      }
+      .field input,
+      .field select {
+        width: 100%;
+        border: 1px solid #dfe3ee;
+        background: #fff;
+        border-radius: 12px;
+        padding: 11px 12px;
+        color: var(--ink);
+        min-height: 46px;
+      }
+      .inline-check {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 0px 13px;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        min-height: 46px;
+      }
+      .inline-check input {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--primary);
+      }
+      .note {
+        border-radius: 13px;
+        padding: 12px 14px;
+        font-size: 14px;
+        margin-top: 14px;
+      }
+      .note.info {
+        background: #f0f4ff;
+        color: #454b88;
+        margin-bottom: 12px;
+      }
+      .note.warn {
+        background: #fff7e9;
+        color: #89580f;
+      }
+      .note.error {
+        background: var(--red-bg);
+        color: var(--red);
+      }
+      .note.success {
+        background: var(--green-bg);
+        color: var(--green);
+      }
+      .main-action {
+        width: 100%;
+        margin-top: 18px;
+        min-height: 49px;
+        font-size: 14px;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .small {
+        font-size: 13px;
+        font-weight: bold;
+        color: var(--red) !important;
+        margin-top: 20px !important;
+        margin-bottom: 0px !important;
+      }
+      .footer {
+        padding: 22px 8px 0;
+        text-align: center;
+        color: #8a91a3;
+        font-size: 11px;
+      }
+      /* Exam layout */
+      .exam-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 0 0 14px;
+      }
+      .exam-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .exam-title h2 {
+        font-size: 20px;
+        margin: 0;
+      }
+      .exam-title p {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 2px 0 0;
+      }
+      .progress-wrap {
+        height: 6px;
+        background: #e8eaf4;
+        border-radius: 99px;
+        overflow: hidden;
+        margin: 12px 0 16px;
+      }
+      .progress-bar {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, #7c7df6, #4d4fc9);
+        border-radius: 99px;
+        transition: width 0.2s;
+      }
+      .exam-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(330px, 0.85fr);
+        gap: 16px;
+        align-items: start;
+      }
+      .document-card,
+      .answer-card {
+        min-width: 0;
+        overflow: hidden;
+      }
+      .card-head {
+        padding: 15px 18px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .card-head h3 {
+        font-size: 14px;
+        margin: 0;
+      }
+      .doc-controls {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .icon-btn {
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 10px;
+        color: #4d5366;
+        display: grid;
+        place-items: center;
+      }
+      .page-count {
+        font-size: 11px;
+        color: var(--muted);
+        min-width: 62px;
+        text-align: center;
+      }
+      .doc-stage {
+        height: min(69vh, 780px);
+        min-height: 390px;
+        overflow: hidden;
+        background: #f1f3f8;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        overscroll-behavior: contain;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .doc-stage::-webkit-scrollbar {
+        display: none;
+      }
+      .doc-stage embed,
+      .doc-stage iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+        border: 0;
+        background: #fff;
+      }
+      .doc-stage img {
+        max-height: 100%;
+        object-fit: contain;
+      }
+      .doc-stage img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        box-shadow: 0 5px 22px #18204414;
+        background: #fff;
+      }
+      .doc-stage canvas {
+        display: block;
+        flex: 0 0 auto;
+        max-width: none;
+        height: auto;
+        background: #fff;
+        box-shadow: 0 5px 22px #18204414;
+      }
+      .doc-empty {
+        align-self: center;
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .doc-caption {
+        padding: 10px 15px;
+        color: var(--muted);
+        font-size: 11px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .answer-content {
+        padding: 18px;
+      }
+      .question-number {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+      .q-badge {
+        font-size: 13px;
+        font-weight: bold;
+        background: var(--soft);
+        color: var(--primary);
+        border-radius: 11px;
+        padding: 7px 11px;
+      }
+      .answered-count {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .answer-prompt {
+        font-size: 13px;
+        font-weight: bold;
+        margin: 0 0 13px;
+      }
+      .options {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
+      .option {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        text-align: right;
+        min-height: 51px;
+        padding: 10px 12px;
+        background: #fff;
+        border: 1px solid #e0e4ef;
+        border-radius: 13px;
+        color: #333b50;
+        font-size: 13px;
+        transition: 0.15s;
+      }
+      .option-letter {
+        width: 29px;
+        height: 29px;
+        flex: 0 0 29px;
+        border-radius: 9px;
+        background: #f1f2f8;
+        display: grid;
+        place-items: center;
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .option.selected {
+        border-color: var(--primary);
+        background: #f1f1ff;
+        color: #4142ba;
+        box-shadow: 0 0 0 2px #5b5ce214;
+      }
+      .option.selected .option-letter {
+        background: var(--primary);
+        color: #fff;
+      }
+      .option.skip {
+        grid-column: 1/-1;
+        justify-content: center;
+        background: #fff;
+        border-style: dashed;
+      }
+      .option.skip.selected {
+        background: var(--orange-bg);
+        border-color: var(--orange);
+        color: #9a5600;
+        box-shadow: 0 0 0 2px #ed8a1914;
+      }
+      .option.skip.selected .option-letter {
+        background: var(--orange);
+        color: #fff;
+      }
+      .option.correct {
+        background: var(--green-bg);
+        border-color: #81d5b2;
+        color: #116c4b;
+      }
+      .option.wrong {
+        background: var(--red-bg);
+        border-color: #f1a4ac;
+        color: #a82b38;
+      }
+      .option:disabled {
+        cursor: default;
+      }
+      .answer-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+        margin-top: 17px;
+      }
+      .answer-nav .btn {
+        padding: 10px 8px;
+      }
+      .question-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 7px;
+        margin-top: 18px;
+      }
+      .q-jump {
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 9px;
+        min-height: 36px;
+        font-size: 11px;
+        color: #596174;
+      }
+      .q-jump.current {
+        outline: 2px solid var(--primary);
+        outline-offset: 1px;
+        color: var(--primary);
+        font-weight: bold;
+      }
+      .q-jump.done {
+        background: #eef0ff;
+        border-color: #c8caff;
+        color: #4546bb;
+      }
+      .q-jump.skipped {
+        background: var(--orange-bg);
+        border-color: #f4c37f;
+        color: #9a5600;
+      }
+      .q-jump.keydone {
+        background: #e7f7ef;
+        border-color: #a4dfc5;
+        color: #16714e;
+      }
+      .submit-box {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+      }
+      .submit-box p {
+        font-size: 11px;
+        color: var(--muted);
+        margin: 0 0 10px;
+      }
+      .submit-box .btn {
+        width: 100%;
+        min-height: 46px;
+      }
+      .timer {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        background: #fff;
+        padding: 8px 12px;
+        font-variant-numeric: tabular-nums;
+      }
+      .timer .time {
+        font-size: 16px;
+        font-weight: bold;
+        direction: ltr;
+      }
+      .timer .time-label {
+        font-size: 10px;
+        color: var(--muted);
+      }
+      .timer.warning {
+        background: #fff7e9;
+        border-color: #f4d49a;
+        color: #9a610d;
+      }
+      .timer.urgent {
+        background: var(--red-bg);
+        border-color: #f1b3ba;
+        color: var(--red);
+        animation: pulse 1.2s infinite;
+      }
+      @keyframes pulse {
+        50% {
+          opacity: 0.72;
+        }
+      }
+      .toast-area {
+        position: fixed;
+        z-index: 50;
+        top: 16px;
+        left: 16px;
+        right: 16px;
+        display: flex;
+        justify-content: center;
+        pointer-events: none;
+      }
+      .toast {
+        max-width: 460px;
+        background: #20253a;
+        color: #fff;
+        box-shadow: 0 12px 35px #11152d33;
+        border-radius: 14px;
+        padding: 13px 17px;
+        font-size: 13px;
+        animation: slide 0.25s ease;
+      }
+      .toast.warning {
+        background: #89580f;
+      }
+      .toast.urgent {
+        background: #a82b38;
+      }
+      @keyframes slide {
+        from {
+          transform: translateY(-10px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      /* Results */
+      .results {
+        max-width: 950px;
+        margin: 20px auto;
+      }
+      .result-hero {
+        padding: 28px;
+        text-align: center;
+        background: linear-gradient(145deg, #fff, #f1f1ff);
+      }
+      .result-hero h2 {
+        font-size: 24px;
+        margin: 0;
+      }
+      .result-hero p {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 6px 0 20px;
+      }
+      .score-ring {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 15px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: conic-gradient(
+          var(--primary) var(--score-angle, 0deg),
+          #e8e9f3 0
+        );
+        position: relative;
+      }
+      .score-ring:before {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        border-radius: 50%;
+        background: #fff;
+      }
+      .score-inner {
+        position: relative;
+        z-index: 1;
+      }
+      .score-value {
+        font-size: 28px;
+        font-weight: bold;
+        direction: ltr;
+      }
+      .score-caption {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin: 14px 0;
+      }
+      .stat {
+        padding: 17px 10px;
+        text-align: center;
+      }
+      .stat .num {
+        font-size: 26px;
+        font-weight: bold;
+        direction: ltr;
+      }
+      .stat .label {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .stat.green .num {
+        color: var(--green);
+      }
+      .stat.red .num {
+        color: var(--red);
+      }
+      .stat.orange .num {
+        color: var(--orange);
+      }
+      .stat.purple .num {
+        color: var(--primary);
+      }
+      .result-detail {
+        padding: 20px;
+      }
+      .result-detail h3 {
+        margin: 0 0 14px;
+        font-size: 16px;
+      }
+      .result-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 13px;
+      }
+      .result-row:last-child {
+        border-bottom: 0;
+      }
+      .result-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+      .review-list {
+        display: grid;
+        gap: 9px;
+        margin-top: 14px;
+      }
+      .review-item {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 12px;
+      }
+      .review-item.correct {
+        border-color: #b3e3ce;
+        background: #f2fbf6;
+      }
+      .review-item.wrong {
+        border-color: #f2c0c5;
+        background: #fff6f7;
+      }
+      .review-item.skipped {
+        border-color: #f4d29f;
+        background: #fff9ef;
+      }
+      .review-item strong {
+        white-space: nowrap;
+      }
+      @media (max-width: 900px) {
+        .exam-grid {
+          grid-template-columns: minmax(0, 1fr) minmax(290px, 0.9fr);
+        }
+        .doc-stage {
+          height: 62vh;
+          min-height: 340px;
+        }
+        .question-grid {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 680px) {
+        .app {
+          padding: 13px 10px 25px;
+        }
+        .topbar {
+          margin-bottom: 14px;
+        }
+        .brandmark {
+          width: 42px;
+          height: 42px;
+          border-radius: 14px;
+        }
+        .brand h1 {
+          font-size: 17px;
+        }
+        .topbar > .pill {
+          font-size: 10px;
+          padding: 6px 9px;
+        }
+        .welcome {
+          margin: 14px auto;
+        }
+        .steps {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+        .step {
+          display: flex;
+          gap: 12px;
+          align-items: flex-start;
+          padding: 12px;
+        }
+        .stepnum {
+          margin: 0;
+          flex: 0 0 30px;
+        }
+        .step h3 {
+          margin-top: 2px;
+        }
+        .hero h2 {
+          font-size: 26px;
+        }
+        .settings-grid {
+          grid-template-columns: 1fr;
+        }
+        .panel {
+          padding: 16px;
+        }
+        .exam-head {
+          align-items: flex-start;
+        }
+        .exam-title h2 {
+          font-size: 17px;
+        }
+        .exam-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .document-card {
+          order: 1;
+        }
+        .answer-card {
+          order: 2;
+        }
+        .doc-stage {
+          height: 45vh;
+          min-height: 270px;
+          max-height: 500px;
+          padding: 10px;
+        }
+        .card-head {
+          padding: 11px 13px;
+        }
+        .answer-content {
+          padding: 14px;
+        }
+        .options {
+          gap: 7px;
+        }
+        .option {
+          min-height: 48px;
+          padding: 8px;
+          font-size: 12px;
+        }
+        .option-letter {
+          width: 26px;
+          height: 26px;
+          flex-basis: 26px;
+        }
+        .question-grid {
+          grid-template-columns: repeat(6, minmax(0, 1fr));
+          gap: 6px;
+        }
+        .q-jump {
+          min-height: 34px;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px;
+        }
+        .stat {
+          padding: 13px 8px;
+        }
+        .stat .num {
+          font-size: 23px;
+        }
+        .result-hero {
+          padding: 22px 15px;
+        }
+        .result-hero h2 {
+          font-size: 21px;
+        }
+        .score-ring {
+          width: 135px;
+          height: 135px;
+        }
+        .result-actions .btn {
+          flex: 1;
+        }
+        .timer {
+          padding: 6px 9px;
+        }
+        .timer .time {
+          font-size: 14px;
+        }
+      }
+
+      /* Visual refinement: clearer type, calmer surfaces, and more consistent controls. */
+      :root {
+        --primary: #5857d9;
+        --primary2: #4544bd;
+        --radius: 20px;
+        --shadow: 0 10px 30px rgba(29, 38, 78, 0.055);
+      }
+      body {
+        font-size: 14px;
+        letter-spacing: -0.12px;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      button,
+      input,
+      select {
+        font-family: inherit;
+      }
+      .card {
+        border-color: #e8eaf3;
+        box-shadow: var(--shadow);
+      }
+      .brand h1,
+      .hero h2,
+      .panel h3,
+      .exam-title h2,
+      .result-hero h2 {
+        letter-spacing: -0.45px;
+      }
+      .brandmark {
+        box-shadow: 0 8px 18px #5557d626;
+      }
+      .btn {
+        min-height: 42px;
+        border-radius: 12px;
+        transition:
+          transform 0.16s ease,
+          box-shadow 0.16s ease,
+          background 0.16s ease;
+      }
+      .btn.primary {
+        box-shadow: 0 5px 12px #5857d91c;
+      }
+      .btn.primary:hover {
+        box-shadow: 0 8px 18px #5857d92b;
+      }
+      .field input,
+      .field select {
+        transition:
+          border-color 0.16s,
+          box-shadow 0.16s;
+      }
+      .field input:focus,
+      .field select:focus {
+        border-color: #8d8df0;
+        box-shadow: 0 0 0 4px #5857d914;
+        outline: none;
+      }
+      .icon-btn {
+        flex: 0 0 36px;
+        width: 36px;
+        height: 36px;
+        font-size: 19px;
+        transition:
+          background 0.15s,
+          border-color 0.15s,
+          color 0.15s;
+      }
+      .icon-btn:hover:not(:disabled) {
+        background: #f1f1ff;
+        border-color: #c9c9fa;
+        color: var(--primary);
+      }
+      .icon-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+      .option {
+        line-height: 1.45;
+        border-radius: 14px;
+        min-height: 54px;
+      }
+      .option:hover:not(:disabled) {
+        border-color: #b8b9f1;
+      }
+      .q-jump {
+        font-family: inherit;
+        font-variant-numeric: tabular-nums;
+      }
+      .doc-stage {
+        background: #eef0f6;
+      }
+      .doc-stage canvas,
+      .doc-stage img {
+        border-radius: 3px;
+        box-shadow: 0 6px 22px rgba(20, 27, 58, 0.13);
+      }
+      @media (max-width: 680px) {
+        .doc-stage {
+          padding: 0;
+          min-height: 250px;
+        }
+        .hero h2 {
+          letter-spacing: -0.6px;
+        }
+        .option {
+          min-height: 50px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *:before,
+        *:after {
+          scroll-behavior: auto !important;
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+    <!-- PDF files use the browser built-in PDF viewer; no PDF library is required. -->
+  </head>
+  <body>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brandmark" aria-hidden="true">✓</div>
+          <div>
+            <h1>آزمون‌یار</h1>
+            <p>آزمون تستی، ساده و دقیق</p>
+          </div>
+        </div>
+        <div class="pill">
+          <span class="dot"></span
+          ><span id="storageStatus">ذخیره‌سازی محلی فعال</span>
+        </div>
+      </header>
+      <main id="setupView" class="welcome">
+        <section class="card hero">
+          <div class="eyebrow">آماده‌ای شروع کنی؟</div>
+          <h2>سؤال‌هایت را بیاور؛<br />بقیه‌اش با آزمون‌یار ✨</h2>
+          <p class="b2s">
+            PDF یا عکس سؤال‌ها را انتخاب کن، تعداد تست و زمان را مشخص کن، آزمون
+            بده و در پایان با واردکردن کلید، نتیجه‌ات را دقیق ببین.
+          </p>
+        </section>
+        <div class="steps" aria-label="راهنمای شروع">
+          <div class="step">
+            <div class="stepnum">۱</div>
+            <div>
+              <h3>فایل سؤال‌ها</h3>
+              <p>
+                اگر پوشهٔ source در مخزن عمومی GitHub فایل داشته باشد، خودکار
+                استفاده می‌شود؛ وگرنه فایل‌هایت را انتخاب کن.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="stepnum">۲</div>
+            <div>
+              <h3>تنظیم آزمون</h3>
+              <p>
+                تعداد تست، شمارهٔ شروع، تعداد گزینه‌ها و در صورت تمایل زمان
+                آزمون را مشخص کن.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="stepnum">۳</div>
+            <div>
+              <h3>پاسخ و تصحیح</h3>
+              <p>
+                برای ردکردن هر تست گزینهٔ نارنجی را بزن؛ سپس کلید را وارد کن تا
+                درصد محاسبه شود.
+              </p>
+            </div>
+          </div>
+        </div>
+        <section class="card panel">
+          <h3>۱. فایل سؤال‌ها</h3>
+          <p class="subtext">
+            اول منبع آماده بررسی می‌شود. اگر فایلی پیدا نشود، می‌توانی PDF یا
+            تصاویر را انتخاب کنی.
+          </p>
+          <div id="sourceStatus" class="note info" role="status">
+            در حال بررسی فایل‌های پوشهٔ source…
+          </div>
+          <div id="uploadArea" class="upload-zone hidden">
+            <div class="upload-icon" aria-hidden="true">📄</div>
+            <h4>فایل سؤال‌ها را انتخاب کن</h4>
+            <p>
+              PDF یا عکس‌های JPG، PNG، WEBP و GIF؛ انتخاب چند فایل هم ممکن است.
+            </p>
+            <div class="actions" style="justify-content: center">
+              <button class="btn primary" id="chooseFilesBtn" type="button">
+                انتخاب فایل‌ها</button
+              ><button class="btn secondary" id="chooseFolderBtn" type="button">
+                انتخاب پوشهٔ source
+              </button>
+            </div>
+            <input
+              id="fileInput"
+              type="file"
+              accept="application/pdf,image/*,.pdf"
+              multiple
+              hidden />
+            <input
+              id="folderInput"
+              type="file"
+              webkitdirectory
+              directory
+              multiple
+              hidden />
+            <p class="small" style="margin-top: 12px">
+              فایل‌ها در پوشهٔ GitHub ذخیره نمی‌شوند. برای حفظ دسترسی در همین
+              مرورگر، نسخه‌ای محلی ذخیره می‌شود.
+            </p>
+          </div>
+          <div id="fileSummary" class="file-summary hidden">
+            <div>
+              <strong id="fileSummaryTitle">فایل‌ها آماده‌اند</strong>
+              <div id="fileSummaryText" class="muted small"></div>
+            </div>
+            <div class="actions">
+              <button id="changeFilesBtn" class="btn ghost" type="button">
+                تغییر فایل‌ها</button
+              ><button id="clearSavedFilesBtn" class="btn ghost" type="button">
+                حذف فایل‌های ذخیره‌شده
+              </button>
+            </div>
+          </div>
+        </section>
+        <section class="card panel" id="settingsPanel">
+          <h3>۲. تنظیمات آزمون</h3>
+          <p class="subtext">
+            گزینه‌های پیشنهادی از قبل انتخاب شده‌اند؛ هرکدام را خواستی تغییر
+            بده.
+          </p>
+          <div class="settings-grid">
+            <div class="field">
+              <label for="optionCount">تعداد گزینه‌های هر تست</label
+              ><select id="optionCount">
+                <option value="4" selected>۴ گزینه (پیش‌فرض)</option>
+                <option value="5">۵ گزینه</option>
+                <option value="3">۳ گزینه</option>
+                <option value="2">۲ گزینه</option></select
+              ><span class="hint">گزینهٔ «رد سؤال» جداگانه اضافه می‌شود.</span>
+            </div>
+            <div class="field">
+              <label for="testCount">تعداد تست‌ها</label
+              ><input
+                id="testCount"
+                type="number"
+                min="1"
+                max="500"
+                step="1"
+                placeholder="مثلاً ۳۰" /><span class="hint"
+                >تعداد تست‌هایی که می‌خواهی پاسخ بدهی.</span
+              >
+            </div>
+            <div class="field">
+              <label for="startNumber">شمارهٔ تست شروع</label
+              ><input
+                id="startNumber"
+                type="number"
+                min="1"
+                max="1000000"
+                step="1"
+                value="1" /><span class="hint"
+                >مثلاً ۲۰ تا تست‌ها از شمارهٔ ۲۰ شروع شوند.</span
+              >
+            </div>
+            <div class="field">
+              <label for="timedToggle">زمان آزمون</label
+              ><label class="inline-check" for="timedToggle"
+                ><input id="timedToggle" type="checkbox" /><span
+                  >آزمون زمان‌دار باشد</span
+                ></label
+              >
+            </div>
+            <div class="field hidden" id="durationField">
+              <label for="durationMinutes">مدت آزمون (دقیقه)</label
+              ><input
+                id="durationMinutes"
+                type="number"
+                min="1"
+                max="600"
+                step="1"
+                value="30" /><span class="hint"
+                >در پایان زمان، آزمون خودکار بسته می‌شود.</span
+              >
+            </div>
+          </div>
+          <div class="note info">
+            راهنما: در آزمون ۴ گزینه‌ای، گزینهٔ پنجم «رد سؤال» است. تست خالی
+            نداریم؛ هر تست را پاسخ بده یا صریحاً رد کن. بعد از پایان، برای همهٔ
+            سؤال‌ها باید کلید وارد شود.
+          </div>
+          <button
+            id="startExamBtn"
+            class="btn primary main-action"
+            type="button"
+            disabled>
+            شروع آزمون ←
+          </button>
+          <div id="setupError" class="note error hidden" role="alert"></div>
+        </section>
+        <div class="footer">
+          آزمون‌یار · فایل‌های سؤال به مخزن GitHub نوشته نمی‌شوند.
+        </div>
+      </main>
+
+      <main id="examView" class="hidden">
+        <div class="exam-head">
+          <div class="exam-title">
+            <div
+              class="brandmark"
+              style="width: 40px; height: 40px; font-size: 20px">
+              ✓
+            </div>
+            <div>
+              <h2 id="examStageTitle">آزمون</h2>
+              <p id="examStageSubtitle">پاسخ‌هایت را با دقت انتخاب کن.</p>
+            </div>
+          </div>
+          <div class="actions">
+            <div id="timerBox" class="timer hidden" aria-live="off">
+              <span>⏱</span>
+              <div>
+                <div id="timerValue" class="time">00:00</div>
+                <div class="time-label">زمان باقی‌مانده</div>
+              </div>
+            </div>
+            <button class="btn ghost" id="exitExamBtn" type="button">
+              خروج
+            </button>
+          </div>
+        </div>
+        <div class="progress-wrap">
+          <div id="examProgress" class="progress-bar"></div>
+        </div>
+        <div class="exam-grid">
+          <section class="card document-card">
+            <div class="card-head">
+              <h3>📄 صورت سؤال‌ها</h3>
+              <div class="doc-controls">
+                <button
+                  id="zoomOutBtn"
+                  class="icon-btn"
+                  type="button"
+                  aria-label="کوچک‌نمایی">
+                  −</button
+                ><button
+                  id="zoomInBtn"
+                  class="icon-btn"
+                  type="button"
+                  aria-label="بزرگ‌نمایی">
+                  +
+                </button>
+              </div>
+            </div>
+            <div id="docStage" class="doc-stage">
+              <div class="doc-empty">در حال آماده‌سازی صورت سؤال‌ها…</div>
+            </div>
+            <div class="doc-caption">
+              <span id="docFileName">فایل سؤال</span
+              ><span class="doc-controls"
+                ><button
+                  id="docPrevBtn"
+                  class="icon-btn"
+                  type="button"
+                  aria-label="صفحهٔ قبلی">
+                  ‹</button
+                ><span id="docPageCount" class="page-count">صفحه ۰ از ۰</span
+                ><button
+                  id="docNextBtn"
+                  class="icon-btn"
+                  type="button"
+                  aria-label="صفحهٔ بعدی">
+                  ›</button
+                ><button
+                  id="docNextFileBtn"
+                  class="btn ghost small hidden"
+                  type="button">
+                  فایل بعدی
+                </button></span
+              >
+            </div>
+          </section>
+          <section class="card answer-card">
+            <div class="card-head">
+              <h3 id="answerPanelTitle">📝 پاسخ‌نامه</h3>
+              <span id="answerPanelBadge" class="pill">مرحلهٔ ۱ از ۲</span>
+            </div>
+            <div class="answer-content">
+              <div class="question-number">
+                <span id="questionBadge" class="q-badge">سؤال ۱</span
+                ><span id="answeredCount" class="answered-count"
+                  >۰ از ۰ پاسخ</span
+                >
+              </div>
+              <p id="answerPrompt" class="answer-prompt">
+                گزینهٔ درست را انتخاب کن
+              </p>
+              <div id="optionsContainer" class="options"></div>
+              <div class="answer-nav">
+                <button
+                  id="prevQuestionBtn"
+                  class="btn secondary"
+                  type="button">
+                  → قبلی</button
+                ><button
+                  id="nextQuestionBtn"
+                  class="btn secondary"
+                  type="button">
+                  بعدی ←
+                </button>
+              </div>
+              <div
+                id="questionGrid"
+                class="question-grid"
+                aria-label="رفتن به شماره سؤال"></div>
+              <div class="submit-box">
+                <p id="submitHint">
+                  برای همهٔ تست‌ها پاسخ انتخاب کن یا گزینهٔ «رد سؤال» را بزن.
+                </p>
+                <button id="submitStageBtn" class="btn primary" type="button">
+                  پایان آزمون و ورود کلید
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <main id="resultsView" class="results hidden">
+        <section class="card result-hero">
+          <div class="eyebrow">گزارش نهایی</div>
+          <h2>نتیجهٔ آزمون تو آماده است 🎉</h2>
+          <p id="resultSubtitle">پاسخ‌ها با کلید مقایسه شدند.</p>
+          <div id="scoreRing" class="score-ring">
+            <div class="score-inner">
+              <div id="scoreValue" class="score-value">۰٪</div>
+              <div class="score-caption">درصد نهایی</div>
+            </div>
+          </div>
+          <div class="pill" style="justify-content: center">
+            <span>✓</span><span id="resultCorrectLine">تصحیح انجام شد</span>
+          </div>
+        </section>
+        <div class="stats-grid">
+          <div class="card stat green">
+            <div id="correctStat" class="num">۰</div>
+            <div class="label">پاسخ صحیح</div>
+          </div>
+          <div class="card stat red">
+            <div id="wrongStat" class="num">۰</div>
+            <div class="label">پاسخ غلط</div>
+          </div>
+          <div class="card stat orange">
+            <div id="blankStat" class="num">۰</div>
+            <div class="label">نزده / ردشده</div>
+          </div>
+          <div class="card stat purple">
+            <div id="totalStat" class="num">۰</div>
+            <div class="label">کل تست‌ها</div>
+          </div>
+        </div>
+        <section class="card result-detail">
+          <h3>جزئیات آزمون</h3>
+          <div class="result-row">
+            <span>شمارهٔ تست‌ها</span><strong id="resultRange">—</strong>
+          </div>
+          <div class="result-row">
+            <span>زمان صرف‌شده</span><strong id="resultTime">—</strong>
+          </div>
+          <div class="result-row">
+            <span>فرمول درصد</span
+            ><strong dir="ltr">((۳ × صحیح) − غلط) ÷ (۳ × کل) × ۱۰۰</strong>
+          </div>
+          <div id="negativeNote" class="note warn hidden">
+            به‌دلیل نمرهٔ منفی، درصد طبق فرمول انتخابی تو منفی شده است؛ عدد بدون
+            محدودسازی نمایش داده می‌شود.
+          </div>
+          <div class="result-actions">
+            <button id="reviewBtn" class="btn secondary" type="button">
+              مشاهدهٔ پاسخ‌ها</button
+            ><button id="newExamBtn" class="btn primary" type="button">
+              آزمون جدید با همین فایل‌ها</button
+            ><button id="homeBtn" class="btn ghost" type="button">
+              بازگشت به تنظیمات
+            </button>
+          </div>
+          <div id="reviewList" class="review-list hidden"></div>
+        </section>
+      </main>
+    </div>
+    <script>
+      "use strict";
+      /* Optional override for custom domains: set these to a public GitHub repository owner/name.
+   Example: const GITHUB_SOURCE = { owner: 'username', repo: 'exam-project', branch: 'main' }; */
+      const GITHUB_SOURCE = { owner: "", repo: "", branch: "" };
+      const DB_NAME = "exam-yar-db-v1";
+      const DB_STORE = "saved";
+      const STORAGE_KEY = "exam-yar-state-v1";
+      const SUPPORTED_EXT = /\.(pdf|png|jpe?g|webp|gif|bmp)$/i;
+      const $ = (id) => document.getElementById(id);
+      const state = {
+        files: [],
+        docPages: [],
+        docIndex: 0,
+        zoom: 1,
+        stage: "setup",
+        renderTask: null,
+        renderGeneration: 0,
+        optionsCount: 4,
+        testCount: 0,
+        startNumber: 1,
+        answers: [],
+        keys: [],
+        current: 0,
+        timed: false,
+        durationSeconds: 0,
+        deadline: null,
+        startedAt: null,
+        endedAt: null,
+        timerInterval: null,
+        warned5: false,
+        warned1: false,
+        sourceKind: "",
+        lastResults: null,
+      };
+      let dbPromise;
+
+      function toFa(value) {
+        return String(value)
+          .replace(/[0-9]/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[Number(d)])
+          .replace(/\./g, "٫")
+          .replace(/-/g, "−");
+      }
+      function formatClock(seconds) {
+        seconds = Math.max(0, Math.floor(seconds));
+        const h = Math.floor(seconds / 3600),
+          m = Math.floor((seconds % 3600) / 60),
+          s = seconds % 60;
+        return h
+          ? `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`
+          : `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+      }
+      function escapeHTML(s) {
+        return String(s).replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      }
+      function toast(message, type = "") {
+        const area = $("toastArea");
+        area.replaceChildren();
+        const node = document.createElement("div");
+        node.className = "toast " + type;
+        node.textContent = message;
+        area.appendChild(node);
+        window.setTimeout(() => {
+          if (node.parentNode) node.remove();
+        }, 4200);
+      }
+      function setSourceMessage(message, type = "info") {
+        const el = $("sourceStatus");
+        el.className = "note " + type;
+        el.textContent = message;
+      }
+      function openDB() {
+        if (!("indexedDB" in window)) return Promise.resolve(null);
+        if (!dbPromise)
+          dbPromise = new Promise((resolve) => {
+            const req = indexedDB.open(DB_NAME, 1);
+            req.onupgradeneeded = () => {
+              const db = req.result;
+              if (!db.objectStoreNames.contains(DB_STORE))
+                db.createObjectStore(DB_STORE);
+            };
+            req.onsuccess = () => resolve(req.result);
+            req.onerror = () => resolve(null);
+          });
+        return dbPromise;
+      }
+      async function dbGet(key) {
+        const db = await openDB();
+        if (!db) return null;
+        return new Promise((resolve) => {
+          try {
+            const req = db
+              .transaction(DB_STORE, "readonly")
+              .objectStore(DB_STORE)
+              .get(key);
+            req.onsuccess = () => resolve(req.result ?? null);
+            req.onerror = () => resolve(null);
+          } catch {
+            resolve(null);
+          }
+        });
+      }
+      async function dbSet(key, value) {
+        const db = await openDB();
+        if (!db) return false;
+        return new Promise((resolve) => {
+          try {
+            const tx = db.transaction(DB_STORE, "readwrite");
+            tx.objectStore(DB_STORE).put(value, key);
+            tx.oncomplete = () => resolve(true);
+            tx.onerror = () => resolve(false);
+            tx.onabort = () => resolve(false);
+          } catch {
+            resolve(false);
+          }
+        });
+      }
+      async function dbDelete(key) {
+        const db = await openDB();
+        if (!db) return;
+        return new Promise((resolve) => {
+          try {
+            const tx = db.transaction(DB_STORE, "readwrite");
+            tx.objectStore(DB_STORE).delete(key);
+            tx.oncomplete = () => resolve();
+            tx.onerror = () => resolve();
+          } catch {
+            resolve();
+          }
+        });
+      }
+      function persistState() {
+        try {
+          const saved = {
+            stage: state.stage,
+            optionsCount: state.optionsCount,
+            testCount: state.testCount,
+            startNumber: state.startNumber,
+            answers: state.answers,
+            keys: state.keys,
+            current: state.current,
+            timed: state.timed,
+            durationSeconds: state.durationSeconds,
+            deadline: state.deadline,
+            startedAt: state.startedAt,
+            endedAt: state.endedAt,
+            warned5: state.warned5,
+            warned1: state.warned1,
+            sourceKind: state.sourceKind,
+            lastResults: state.lastResults,
+          };
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+        } catch {}
+      }
+      function readSavedState() {
+        try {
+          return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+        } catch {
+          return null;
+        }
+      }
+      function filesToStored(files) {
+        return files.map((f) => ({
+          name: f.name,
+          type: f.type || guessType(f.name),
+          size: f.size,
+          lastModified: f.lastModified || 0,
+          blob: f,
+        }));
+      }
+      function guessType(name) {
+        const ext = (name.split(".").pop() || "").toLowerCase();
+        return ext === "pdf"
+          ? "application/pdf"
+          : {
+              jpg: "image/jpeg",
+              jpeg: "image/jpeg",
+              png: "image/png",
+              webp: "image/webp",
+              gif: "image/gif",
+              bmp: "image/bmp",
+            }[ext] || "application/octet-stream";
+      }
+      function normalizeFiles(items) {
+        return items
+          .filter((item) => item && SUPPORTED_EXT.test(item.name || ""))
+          .map((item) => ({
+            name: item.name,
+            type: item.type || guessType(item.name),
+            size: item.size || 0,
+            blob: item.blob || item,
+            file: item.blob || item,
+            sourceUrl: item.sourceUrl || null,
+          }));
+      }
+      function updateFileSummary() {
+        const has = state.files.length > 0;
+        $("fileSummary").classList.toggle("hidden", !has);
+        $("uploadArea").classList.toggle("hidden", has);
+        if (has) {
+          $("fileSummaryTitle").textContent =
+            `${toFa(state.files.length)} فایل آمادهٔ استفاده است`;
+          $("fileSummaryText").textContent =
+            state.files
+              .map((f) => f.name)
+              .slice(0, 3)
+              .join("، ") + (state.files.length > 3 ? " و فایل‌های دیگر" : "");
+          $("startExamBtn").disabled = false;
+        } else {
+          $("startExamBtn").disabled = true;
+        }
+      }
+      function inferGitHubRepo() {
+        if (GITHUB_SOURCE.owner && GITHUB_SOURCE.repo)
+          return { ...GITHUB_SOURCE };
+        const host = location.hostname;
+        const parts = location.pathname.split("/").filter(Boolean);
+        if (host.endsWith(".github.io")) {
+          const owner = host.split(".")[0];
+          if (parts.length) return { owner, repo: parts[0], branch: "" };
+          return { owner, repo: `${owner}.github.io`, branch: "" };
+        }
+        return null;
+      }
+      async function fetchSourceFromGitHub() {
+        const repo = inferGitHubRepo();
+        if (!repo) return null;
+        const headers = { Accept: "application/vnd.github+json" };
+        let branch = repo.branch;
+        try {
+          if (!branch) {
+            const r = await fetch(
+              `https://api.github.com/repos/${encodeURIComponent(repo.owner)}/${encodeURIComponent(repo.repo)}`,
+              { headers },
+            );
+            if (!r.ok) throw new Error(`GitHub API ${r.status}`);
+            branch = (await r.json()).default_branch;
+          }
+          const treeRes = await fetch(
+            `https://api.github.com/repos/${encodeURIComponent(repo.owner)}/${encodeURIComponent(repo.repo)}/git/trees/${encodeURIComponent(branch)}?recursive=1`,
+            { headers },
+          );
+          if (!treeRes.ok) throw new Error(`GitHub API ${treeRes.status}`);
+          const tree = await treeRes.json();
+          if (tree.truncated)
+            throw new Error("فهرست مخزن برای بررسی کامل بیش از حد بزرگ است.");
+          const prefix = "source/";
+          const paths = (tree.tree || [])
+            .filter(
+              (x) =>
+                x.type === "blob" &&
+                x.path.startsWith(prefix) &&
+                SUPPORTED_EXT.test(x.path),
+            )
+            .map((x) => x.path)
+            .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+          if (!paths.length) return { files: [], repo };
+          const files = [];
+          for (const path of paths) {
+            const url = `https://raw.githubusercontent.com/${encodeURIComponent(repo.owner)}/${encodeURIComponent(repo.repo)}/${encodeURIComponent(branch)}/${path.split("/").map(encodeURIComponent).join("/")}`;
+            files.push({
+              name: path.slice(prefix.length),
+              type: guessType(path),
+              size: 0,
+              blob: null,
+              sourceUrl: url,
+            });
+          }
+          return { files, repo };
+        } catch (err) {
+          console.warn("Could not inspect GitHub source folder:", err);
+          return { error: err, repo };
+        }
+      }
+      async function initSources() {
+        setSourceMessage(
+          "در حال بررسی فایل‌های پوشهٔ source در مخزن عمومی GitHub…",
+          "info",
+        );
+        const remote = await fetchSourceFromGitHub();
+        if (remote && remote.files && remote.files.length) {
+          state.files = normalizeFiles(remote.files);
+          state.sourceKind = "github";
+          setSourceMessage(
+            `پوشهٔ source در ${remote.repo.owner}/${remote.repo.repo} دارای ${toFa(state.files.length)} فایل است؛ از همان فایل‌ها استفاده می‌شود.`,
+            "success",
+          );
+          updateFileSummary();
+          return;
+        }
+        const stored = await dbGet("uploadedFiles");
+        if (Array.isArray(stored) && stored.length) {
+          state.files = normalizeFiles(stored);
+          state.sourceKind = "saved";
+          setSourceMessage(
+            "در source فایل معتبری پیدا نشد؛ فایل‌های ذخیره‌شدهٔ قبلی در همین مرورگر بازیابی شدند.",
+            "success",
+          );
+          updateFileSummary();
+          return;
+        }
+        if (remote && remote.error)
+          setSourceMessage(
+            "به پوشهٔ source دسترسی پیدا نشد؛ اگر مخزن خصوصی است یا آدرس سفارشی داری، فایل‌ها را دستی انتخاب کن.",
+            "warn",
+          );
+        else
+          setSourceMessage(
+            "پوشهٔ source خالی است یا در مخزن قابل‌دسترسی پیدا نشد. فایل‌های سؤال را انتخاب کن.",
+            "info",
+          );
+        $("uploadArea").classList.remove("hidden");
+        $("fileSummary").classList.add("hidden");
+        $("startExamBtn").disabled = true;
+      }
+      async function acceptFiles(fileList, fromFolder = false) {
+        const all = Array.from(fileList || []).filter((f) =>
+          SUPPORTED_EXT.test(f.name),
+        );
+        if (!all.length) {
+          toast(
+            "فایل قابل پشتیبانی پیدا نشد. PDF یا تصویر انتخاب کن.",
+            "warning",
+          );
+          return;
+        }
+        const total = all.reduce((s, f) => s + f.size, 0);
+        if (total > 350 * 1024 * 1024) {
+          toast(
+            "حجم مجموع فایل‌ها بیش از ۳۵۰ مگابایت است؛ فایل‌های کمتری انتخاب کن.",
+            "warning",
+          );
+          return;
+        }
+        state.files = normalizeFiles(
+          all.map((f) => ({
+            name: fromFolder
+              ? (f.webkitRelativePath || f.name).replace(/^.*?source\//, "")
+              : f.name,
+            type: f.type,
+            size: f.size,
+            blob: f,
+            file: f,
+          })),
+        );
+        state.sourceKind = "uploaded";
+        const ok = await dbSet(
+          "uploadedFiles",
+          filesToStored(state.files.map((f) => f.file || f.blob)),
+        );
+        if (ok) {
+          $("storageStatus").textContent = "فایل‌ها در همین مرورگر ذخیره شدند";
+          setSourceMessage(
+            "فایل‌ها آماده‌اند. در پوشهٔ source ذخیره نشدند؛ نسخه‌ای محلی در همین مرورگر نگهداری می‌شود.",
+            "success",
+          );
+        } else {
+          setSourceMessage(
+            "فایل‌ها برای این جلسه آماده‌اند، اما ذخیرهٔ دائمی مرورگر در دسترس نیست.",
+            "warn",
+          );
+        }
+        updateFileSummary();
+        $("setupError").classList.add("hidden");
+      }
+      function switchView(view) {
+        $("setupView").classList.toggle("hidden", view !== "setup");
+        $("examView").classList.toggle("hidden", view !== "exam");
+        $("resultsView").classList.toggle("hidden", view !== "results");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      function currentQuestionNumber(index = state.current) {
+        return state.startNumber + index;
+      }
+      function getOptionLetters(count) {
+        const labels = ["الف", "ب", "ج", "د", "هـ", "و", "ز", "ح", "ط", "ی"];
+        return Array.from(
+          { length: count },
+          (_, i) => labels[i] || String(i + 1),
+        );
+      }
+      function makeOptionButton(
+        index,
+        label,
+        kind,
+        selected,
+        disabled = false,
+      ) {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className =
+          "option" +
+          (selected ? " selected" : "") +
+          (kind === "skip" ? " skip" : "");
+        b.disabled = disabled;
+        const letter = document.createElement("span");
+        letter.className = "option-letter";
+        letter.textContent = kind === "skip" ? "↷" : label;
+        const txt = document.createElement("span");
+        txt.textContent = kind === "skip" ? "رد سؤال" : `گزینهٔ ${label}`;
+        b.append(letter, txt);
+        b.addEventListener("click", () =>
+          selectAnswer(index, kind === "skip" ? -1 : index),
+        );
+        return b;
+      }
+      function selectAnswer(_index, value) {
+        if (state.stage === "exam") {
+          state.answers[state.current] = value;
+          persistState();
+          renderAnswers();
+        } else if (state.stage === "key") {
+          state.keys[state.current] = value;
+          persistState();
+          renderAnswers();
+        }
+      }
+      function renderAnswers() {
+        const container = $("optionsContainer");
+        container.replaceChildren();
+        const inKey = state.stage === "key";
+        const picked = inKey
+          ? state.keys[state.current]
+          : state.answers[state.current];
+        const letters = getOptionLetters(state.optionsCount);
+        $("questionBadge").textContent =
+          `سؤال ${toFa(currentQuestionNumber())}`;
+        $("answeredCount").textContent =
+          `${toFa((inKey ? state.keys : state.answers).filter((v) => v !== null && v !== undefined).length)} از ${toFa(state.testCount)} ${inKey ? "کلید" : "پاسخ"}`;
+        $("answerPanelTitle").textContent = inKey
+          ? "🔑 کلید پاسخ"
+          : "📝 پاسخ‌نامه";
+        $("answerPanelBadge").textContent = inKey
+          ? "مرحلهٔ ۲ از ۲"
+          : "مرحلهٔ ۱ از ۲";
+        $("answerPrompt").textContent = inKey
+          ? "گزینهٔ صحیح این سؤال را در کلید مشخص کن."
+          : "پاسخ را انتخاب کن یا «رد سؤال» را بزن.";
+        letters.forEach((letter, i) => {
+          const b = makeOptionButton(
+            i,
+            letter,
+            "answer",
+            picked === i,
+            inKey ? false : false,
+          );
+          container.appendChild(b);
+        });
+        if (!inKey)
+          container.appendChild(
+            makeOptionButton(-1, "", "skip", picked === -1),
+          );
+        $("prevQuestionBtn").disabled = state.current === 0;
+        $("nextQuestionBtn").disabled = state.current === state.testCount - 1;
+        $("submitStageBtn").textContent = inKey
+          ? "تصحیح آزمون و نمایش نتیجه"
+          : "پایان آزمون و ورود کلید";
+        $("submitHint").textContent = inKey
+          ? "برای تصحیح، کلید همهٔ سؤال‌ها را مشخص کن."
+          : "برای همهٔ تست‌ها پاسخ انتخاب کن یا گزینهٔ «رد سؤال» را بزن.";
+        const grid = $("questionGrid");
+        grid.replaceChildren();
+        for (let i = 0; i < state.testCount; i++) {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.className = "q-jump";
+          if (i === state.current) b.classList.add("current");
+          const val = (inKey ? state.keys : state.answers)[i];
+          if (inKey && val !== null && val !== undefined)
+            b.classList.add("keydone");
+          else if (!inKey && val === -1) b.classList.add("skipped");
+          else if (!inKey && val !== null && val !== undefined)
+            b.classList.add("done");
+          b.textContent = toFa(currentQuestionNumber(i));
+          b.title = `رفتن به سؤال ${currentQuestionNumber(i)}`;
+          b.addEventListener("click", () => {
+            state.current = i;
+            persistState();
+            renderAnswers();
+          });
+          grid.appendChild(b);
+        }
+        $("examProgress").style.width =
+          `${Math.round(((state.current + 1) / Math.max(1, state.testCount)) * 100)}%`;
+      }
+      async function buildDocPages() {
+        state.docPages = [];
+        for (const f of state.files) {
+          const isPdf = guessType(f.name) === "application/pdf";
+          if (isPdf) {
+            let url = f.sourceUrl || f.objectUrl;
+            if (!url) {
+              const blob = f.blob || f.file;
+              if (!blob) throw new Error(`فایل ${f.name} در دسترس نیست.`);
+              url = URL.createObjectURL(blob);
+              f.objectUrl = url;
+            }
+            state.docPages.push({
+              kind: "pdf-embed",
+              url,
+              name: f.name,
+              pdfPage: 1,
+            });
+          } else if (f.sourceUrl) {
+            state.docPages.push({
+              kind: "image-url",
+              url: f.sourceUrl,
+              name: f.name,
+            });
+          } else {
+            const blob = f.blob || f.file;
+            if (!blob) throw new Error(`فایل ${f.name} در دسترس نیست.`);
+            state.docPages.push({ kind: "image-blob", blob, name: f.name });
+          }
+        }
+        state.docIndex = Math.min(
+          state.docIndex,
+          Math.max(0, state.docPages.length - 1),
+        );
+      }
+      function pdfEmbedUrl(page) {
+        const zoom = Math.round(state.zoom * 100);
+        const separator = page.url.includes("#") ? "&" : "#";
+        return `${page.url}${separator}page=${Math.max(1, page.pdfPage || 1)}&zoom=${zoom}&toolbar=0&navpanes=0&scrollbar=0`;
+      }
+      async function renderDocument() {
+        const stage = $("docStage");
+        const generation = ++state.renderGeneration;
+        stage.replaceChildren();
+        if (!state.docPages.length) {
+          const empty = document.createElement("div");
+          empty.className = "doc-empty";
+          empty.textContent = "صورت سؤال برای نمایش پیدا نشد.";
+          stage.appendChild(empty);
+          return;
+        }
+        const page = state.docPages[state.docIndex];
+        $("docFileName").textContent = page.name;
+        $("docPageCount").textContent =
+          page.kind === "pdf-embed"
+            ? `صفحه ${toFa(page.pdfPage || 1)} · PDF`
+            : `صفحه ${toFa(state.docIndex + 1)} از ${toFa(state.docPages.length)}`;
+        $("docPrevBtn").disabled =
+          page.kind === "pdf-embed"
+            ? (page.pdfPage || 1) <= 1
+            : state.docIndex === 0;
+        $("docNextBtn").disabled = false;
+        $("docNextFileBtn").classList.toggle(
+          "hidden",
+          state.docIndex >= state.docPages.length - 1,
+        );
+        $("zoomOutBtn").disabled = state.zoom <= 0.55;
+        $("zoomInBtn").disabled = state.zoom >= 2.2;
+        stage.setAttribute("aria-busy", "true");
+        try {
+          if (page.kind === "pdf-embed") {
+            const embed = document.createElement("embed");
+            embed.type = "application/pdf";
+            embed.src = pdfEmbedUrl(page);
+            embed.setAttribute("aria-label", `نمایش PDF ${page.name}`);
+            stage.appendChild(embed);
+            // Native PDF viewers do not expose page count to page JavaScript; keep custom page navigation and offer a file-skip button.
+          } else {
+            const img = document.createElement("img");
+            img.alt = `صورت سؤال، ${page.name}`;
+            img.style.width = `${Math.min(100 * state.zoom, 220)}%`;
+            img.style.maxWidth = "none";
+            img.style.maxHeight = "none";
+            img.style.height = "auto";
+            img.style.flex = "0 0 auto";
+            if (page.kind === "image-url") img.src = page.url;
+            else {
+              if (page.objectUrl) URL.revokeObjectURL(page.objectUrl);
+              page.objectUrl = URL.createObjectURL(page.blob);
+              img.src = page.objectUrl;
+            }
+            await new Promise((resolve, reject) => {
+              img.onload = resolve;
+              img.onerror = () =>
+                reject(new Error(`نمایش تصویر ${page.name} ممکن نشد.`));
+            });
+            if (generation !== state.renderGeneration) return;
+            stage.style.overflow = "auto";
+            stage.style.justifyContent = "center";
+            stage.appendChild(img);
+          }
+        } catch (err) {
+          if (generation !== state.renderGeneration) return;
+          const empty = document.createElement("div");
+          empty.className = "doc-empty";
+          empty.textContent = err.message || "نمایش این صفحه ممکن نشد.";
+          stage.replaceChildren(empty);
+        } finally {
+          if (generation === state.renderGeneration)
+            stage.setAttribute("aria-busy", "false");
+        }
+      }
+      async function startExam(restore = false) {
+        const count = Number($("testCount").value),
+          start = Number($("startNumber").value),
+          opt = Number($("optionCount").value),
+          timed = $("timedToggle").checked,
+          duration = Number($("durationMinutes").value);
+        const err = $("setupError");
+        err.classList.add("hidden");
+        if (!state.files.length) {
+          err.textContent = "اول فایل سؤال‌ها را انتخاب کن.";
+          err.classList.remove("hidden");
+          return;
+        }
+        if (!Number.isInteger(count) || count < 1 || count > 500) {
+          err.textContent = "تعداد تست باید عددی بین ۱ تا ۵۰۰ باشد.";
+          err.classList.remove("hidden");
+          return;
+        }
+        if (!Number.isInteger(start) || start < 1 || start > 1000000) {
+          err.textContent = "شمارهٔ شروع باید عددی مثبت باشد.";
+          err.classList.remove("hidden");
+          return;
+        }
+        if (
+          timed &&
+          (!Number.isInteger(duration) || duration < 1 || duration > 600)
+        ) {
+          err.textContent = "مدت آزمون باید عددی بین ۱ تا ۶۰۰ دقیقه باشد.";
+          err.classList.remove("hidden");
+          return;
+        }
+        state.optionsCount = opt;
+        state.testCount = count;
+        state.startNumber = start;
+        state.timed = timed;
+        state.durationSeconds = timed ? duration * 60 : 0;
+        state.stage = "exam";
+        state.current = 0;
+        state.answers = Array(count).fill(null);
+        state.keys = Array(count).fill(null);
+        state.startedAt = Date.now();
+        state.endedAt = null;
+        state.deadline = timed
+          ? Date.now() + state.durationSeconds * 1000
+          : null;
+        state.warned5 = false;
+        state.warned1 = false;
+        state.docIndex = 0;
+        $("examStageTitle").textContent = "آزمون";
+        $("examStageSubtitle").textContent =
+          "هر سؤال را پاسخ بده یا گزینهٔ رد سؤال را انتخاب کن.";
+        $("timerBox").classList.toggle("hidden", !timed);
+        switchView("exam");
+        $("docStage").innerHTML =
+          '<div class="doc-empty">در حال بارگذاری صورت سؤال‌ها…</div>';
+        try {
+          await buildDocPages();
+          if (!state.docPages.length)
+            throw new Error("فایل قابل نمایش پیدا نشد.");
+          await renderDocument();
+          renderAnswers();
+          persistState();
+          if (state.timerInterval) clearInterval(state.timerInterval);
+          if (state.timed) {
+            tickTimer();
+            state.timerInterval = setInterval(tickTimer, 250);
+          } else $("timerBox").classList.add("hidden");
+        } catch (e) {
+          toast(e.message || "بارگذاری فایل‌ها ناموفق بود.", "urgent");
+          switchView("setup");
+          err.textContent = e.message || "بارگذاری فایل‌ها ناموفق بود.";
+          err.classList.remove("hidden");
+          state.stage = "setup";
+          persistState();
+        }
+      }
+      function tickTimer() {
+        if (state.stage !== "exam" || !state.deadline) return;
+        const remaining = Math.max(
+          0,
+          Math.ceil((state.deadline - Date.now()) / 1000),
+        );
+        $("timerValue").textContent = formatClock(remaining);
+        $("timerBox").classList.toggle(
+          "warning",
+          remaining <= 300 && remaining > 60,
+        );
+        $("timerBox").classList.toggle("urgent", remaining <= 60);
+        if (
+          state.durationSeconds >= 300 &&
+          remaining <= 300 &&
+          remaining > 60 &&
+          !state.warned5
+        ) {
+          state.warned5 = true;
+          toast("۵ دقیقه تا پایان آزمون باقی مانده است.", "warning");
+          persistState();
+        }
+        if (remaining <= 60 && remaining > 0 && !state.warned1) {
+          state.warned1 = true;
+          toast("فقط ۱ دقیقه تا پایان آزمون باقی مانده است.", "urgent");
+          persistState();
+        }
+        if (remaining <= 0) {
+          clearInterval(state.timerInterval);
+          state.timerInterval = null;
+          toast("زمان آزمون تمام شد؛ به بخش ورود کلید می‌رویم.", "urgent");
+          window.setTimeout(() => finishExam(true), 350);
+        }
+      }
+      function finishExam(auto = false) {
+        if (state.stage !== "exam") return;
+        const missing = state.answers.filter(
+          (v) => v === null || v === undefined,
+        ).length;
+        if (missing && !auto) {
+          const first = state.answers.findIndex(
+            (v) => v === null || v === undefined,
+          );
+          state.current = first;
+          renderAnswers();
+          toast(
+            `هنوز ${toFa(missing)} سؤال تعیین‌تکلیف نشده است. پاسخ بده یا «رد سؤال» را انتخاب کن.`,
+            "warning",
+          );
+          return;
+        }
+        if (state.timerInterval) {
+          clearInterval(state.timerInterval);
+          state.timerInterval = null;
+        }
+        state.stage = "key";
+        state.current = 0;
+        state.endedAt = Date.now();
+        $("timerBox").classList.add("hidden");
+        $("examStageTitle").textContent = "ورود کلید پاسخ";
+        $("examStageSubtitle").textContent =
+          "صورت سؤال‌ها همان‌جا باقی می‌مانند؛ کلید صحیح هر سؤال را انتخاب کن.";
+        persistState();
+        renderAnswers();
+        toast(
+          auto
+            ? "آزمون بسته شد؛ حالا کلید پاسخ را وارد کن."
+            : "پاسخ‌ها ثبت شدند؛ حالا کلید پاسخ را وارد کن.",
+          "",
+        );
+      }
+      function gradeExam() {
+        const missing = state.keys.filter(
+          (v) => v === null || v === undefined,
+        ).length;
+        if (missing) {
+          const first = state.keys.findIndex(
+            (v) => v === null || v === undefined,
+          );
+          state.current = first;
+          renderAnswers();
+          toast(
+            `برای تصحیح باید کلید همهٔ سؤال‌ها را مشخص کنی؛ ${toFa(missing)} مورد باقی مانده است.`,
+            "warning",
+          );
+          return;
+        }
+        let correct = 0,
+          wrong = 0,
+          blank = 0;
+        const review = [];
+        for (let i = 0; i < state.testCount; i++) {
+          const a = state.answers[i],
+            k = state.keys[i];
+          let result;
+          if (a === -1 || a === null || a === undefined) {
+            blank++;
+            result = "skipped";
+          } else if (a === k) {
+            correct++;
+            result = "correct";
+          } else {
+            wrong++;
+            result = "wrong";
+          }
+          review.push({
+            number: currentQuestionNumber(i),
+            answer: a,
+            key: k,
+            result,
+          });
+        }
+        const pct = ((3 * correct - wrong) / (3 * state.testCount)) * 100;
+        state.lastResults = {
+          correct,
+          wrong,
+          blank,
+          total: state.testCount,
+          pct,
+          review,
+          elapsed: Math.max(
+            0,
+            Math.floor(
+              ((state.endedAt || Date.now()) -
+                (state.startedAt || Date.now())) /
+                1000,
+            ),
+          ),
+          range: `${state.startNumber}–${state.startNumber + state.testCount - 1}`,
+        };
+        state.stage = "results";
+        persistState();
+        renderResults();
+        switchView("results");
+      }
+      function renderResults() {
+        const r = state.lastResults;
+        if (!r) return;
+        $("scoreValue").textContent = `${toFa(r.pct.toFixed(2))}٪`;
+        $("scoreRing").style.setProperty(
+          "--score-angle",
+          `${(Math.max(0, Math.min(100, r.pct)) / 100) * 360}deg`,
+        );
+        $("correctStat").textContent = toFa(r.correct);
+        $("wrongStat").textContent = toFa(r.wrong);
+        $("blankStat").textContent = toFa(r.blank);
+        $("totalStat").textContent = toFa(r.total);
+        $("resultRange").textContent = toFa(r.range);
+        $("resultTime").textContent =
+          state.timed || state.startedAt
+            ? formatClock(r.elapsed)
+            : "بدون تایمر";
+        $("resultCorrectLine").textContent =
+          `${toFa(r.correct)} صحیح، ${toFa(r.wrong)} غلط و ${toFa(r.blank)} نزده`;
+        $("resultSubtitle").textContent = `${toFa(r.total)} تست تصحیح شد.`;
+        $("negativeNote").classList.toggle("hidden", r.pct >= 0);
+        $("reviewList").classList.add("hidden");
+        $("reviewList").replaceChildren();
+      }
+      function renderReview() {
+        const list = $("reviewList");
+        list.replaceChildren();
+        for (const r of state.lastResults.review) {
+          const row = document.createElement("div");
+          row.className = `review-item ${r.result}`;
+          const left = document.createElement("span");
+          left.textContent = `سؤال ${toFa(r.number)} · پاسخ تو: ${r.answer === -1 ? "رد سؤال" : getOptionLetters(state.optionsCount)[r.answer]}`;
+          const right = document.createElement("strong");
+          right.textContent =
+            r.result === "correct"
+              ? "صحیح"
+              : r.result === "wrong"
+                ? `غلط · کلید ${getOptionLetters(state.optionsCount)[r.key]}`
+                : "نزده";
+          row.append(left, right);
+          list.appendChild(row);
+        }
+        list.classList.toggle("hidden", list.classList.contains("hidden"));
+      }
+      function resetForNewExam() {
+        if (state.timerInterval) clearInterval(state.timerInterval);
+        state.stage = "setup";
+        state.answers = [];
+        state.keys = [];
+        state.current = 0;
+        state.deadline = null;
+        state.startedAt = null;
+        state.endedAt = null;
+        state.lastResults = null;
+        persistState();
+        $("testCount").value = "";
+        $("startNumber").value = "1";
+        $("optionCount").value = "4";
+        $("timedToggle").checked = false;
+        $("durationMinutes").value = "30";
+        $("durationField").classList.add("hidden");
+        updateFileSummary();
+        switchView("setup");
+      }
+      function restoreSavedProgress(saved) {
+        if (!saved) return false;
+        if (!["exam", "key", "results"].includes(saved.stage)) return false;
+        state.optionsCount = Number(saved.optionsCount) || 4;
+        state.testCount = Number(saved.testCount) || 0;
+        state.startNumber = Number(saved.startNumber) || 1;
+        state.answers = Array.isArray(saved.answers) ? saved.answers : [];
+        state.keys = Array.isArray(saved.keys) ? saved.keys : [];
+        state.current = Math.max(
+          0,
+          Math.min(
+            Number(saved.current) || 0,
+            Math.max(0, state.testCount - 1),
+          ),
+        );
+        state.timed = !!saved.timed;
+        state.durationSeconds = Number(saved.durationSeconds) || 0;
+        state.deadline = saved.deadline || null;
+        state.startedAt = saved.startedAt || null;
+        state.endedAt = saved.endedAt || null;
+        state.warned5 = !!saved.warned5;
+        state.warned1 = !!saved.warned1;
+        state.sourceKind = saved.sourceKind || state.sourceKind;
+        state.lastResults = saved.lastResults || null;
+        if (
+          state.answers.length !== state.testCount ||
+          state.keys.length !== state.testCount
+        )
+          return false;
+        $("optionCount").value = String(state.optionsCount);
+        $("testCount").value = String(state.testCount);
+        $("startNumber").value = String(state.startNumber);
+        $("timedToggle").checked = state.timed;
+        $("durationMinutes").value = String(
+          Math.max(1, Math.round(state.durationSeconds / 60) || 30),
+        );
+        $("durationField").classList.toggle("hidden", !state.timed);
+        if (saved.stage === "results") return !!state.lastResults;
+        return true;
+      }
+      $("chooseFilesBtn").addEventListener("click", () =>
+        $("fileInput").click(),
+      );
+      $("chooseFolderBtn").addEventListener("click", () =>
+        $("folderInput").click(),
+      );
+      $("changeFilesBtn").addEventListener("click", () => {
+        $("fileInput").click();
+      });
+      $("fileInput").addEventListener("change", (e) => {
+        acceptFiles(e.target.files);
+        e.target.value = "";
+      });
+      $("folderInput").addEventListener("change", (e) => {
+        acceptFiles(e.target.files, true);
+        e.target.value = "";
+      });
+      $("clearSavedFilesBtn").addEventListener("click", async () => {
+        if (
+          !confirm(
+            "فایل‌های ذخیره‌شده از این مرورگر حذف شوند؟ فایل‌های مخزن GitHub تغییر نمی‌کنند.",
+          )
+        )
+          return;
+        await dbDelete("uploadedFiles");
+        if (state.sourceKind === "github") {
+          toast("فایل‌های محلی حذف شدند؛ فایل‌های source مخزن تغییر نکردند.");
+          return;
+        }
+        state.files = [];
+        state.sourceKind = "";
+        updateFileSummary();
+        $("uploadArea").classList.remove("hidden");
+        setSourceMessage(
+          "فایل‌های محلی حذف شدند. برای ادامه دوباره فایل انتخاب کن.",
+          "info",
+        );
+        $("storageStatus").textContent = "ذخیره‌سازی محلی فعال";
+      });
+      $("timedToggle").addEventListener("change", () =>
+        $("durationField").classList.toggle(
+          "hidden",
+          !$("timedToggle").checked,
+        ),
+      );
+      $("startExamBtn").addEventListener("click", () => startExam(false));
+      $("prevQuestionBtn").addEventListener("click", () => {
+        if (state.current > 0) {
+          state.current--;
+          persistState();
+          renderAnswers();
+        }
+      });
+      $("nextQuestionBtn").addEventListener("click", () => {
+        if (state.current < state.testCount - 1) {
+          state.current++;
+          persistState();
+          renderAnswers();
+        }
+      });
+      $("submitStageBtn").addEventListener("click", () =>
+        state.stage === "exam" ? finishExam(false) : gradeExam(),
+      );
+      $("exitExamBtn").addEventListener("click", () => {
+        if (
+          confirm("از آزمون خارج شوی؟ وضعیت فعلی در همین مرورگر ذخیره می‌شود.")
+        ) {
+          if (state.timerInterval) clearInterval(state.timerInterval);
+          state.timerInterval = null;
+          persistState();
+          switchView("setup");
+        }
+      });
+      $("docPrevBtn").addEventListener("click", async () => {
+        const page = state.docPages[state.docIndex];
+        if (page && page.kind === "pdf-embed" && (page.pdfPage || 1) > 1) {
+          page.pdfPage--;
+          await renderDocument();
+        } else if (state.docIndex > 0) {
+          state.docIndex--;
+          await renderDocument();
+        }
+      });
+      $("docNextBtn").addEventListener("click", async () => {
+        const page = state.docPages[state.docIndex];
+        if (page && page.kind === "pdf-embed") {
+          page.pdfPage = (page.pdfPage || 1) + 1;
+        } else if (state.docIndex < state.docPages.length - 1) {
+          state.docIndex++;
+        }
+        await renderDocument();
+      });
+      $("docNextFileBtn").addEventListener("click", async () => {
+        if (state.docIndex < state.docPages.length - 1) {
+          state.docIndex++;
+          await renderDocument();
+        }
+      });
+      $("zoomInBtn").addEventListener("click", async () => {
+        state.zoom = Math.min(2.2, Math.round((state.zoom + 0.15) * 100) / 100);
+        await renderDocument();
+      });
+      $("zoomOutBtn").addEventListener("click", async () => {
+        state.zoom = Math.max(
+          0.55,
+          Math.round((state.zoom - 0.15) * 100) / 100,
+        );
+        await renderDocument();
+      });
+      $("reviewBtn").addEventListener("click", () => {
+        const list = $("reviewList");
+        if (list.classList.contains("hidden")) {
+          renderReview();
+          list.classList.remove("hidden");
+        } else list.classList.add("hidden");
+      });
+      $("newExamBtn").addEventListener("click", resetForNewExam);
+      $("homeBtn").addEventListener("click", () => {
+        state.stage = "setup";
+        persistState();
+        switchView("setup");
+      });
+      const uploadZone = $("uploadArea");
+      for (const event of ["dragenter", "dragover"])
+        uploadZone.addEventListener(event, (e) => {
+          e.preventDefault();
+          uploadZone.classList.add("drag");
+        });
+      for (const event of ["dragleave", "drop"])
+        uploadZone.addEventListener(event, (e) => {
+          e.preventDefault();
+          uploadZone.classList.remove("drag");
+        });
+      uploadZone.addEventListener("drop", (e) =>
+        acceptFiles(e.dataTransfer.files),
+      );
+      window.addEventListener("resize", () => {
+        if (
+          !$("examView").classList.contains("hidden") &&
+          state.docPages.length
+        ) {
+          const page = state.docPages[state.docIndex];
+          if (page && page.kind !== "pdf-embed") renderDocument();
+        }
+      });
+      window.addEventListener("beforeunload", persistState);
+      (async function boot() {
+        await initSources();
+        const saved = readSavedState();
+        if (saved && restoreSavedProgress(saved) && state.files.length) {
+          try {
+            if (state.stage === "results") {
+              renderResults();
+              switchView("results");
+              return;
+            }
+            await buildDocPages();
+            if (
+              state.stage === "exam" &&
+              state.timed &&
+              state.deadline &&
+              Date.now() >= state.deadline
+            ) {
+              state.stage = "exam";
+              finishExam(true);
+              switchView("exam");
+              await renderDocument();
+              renderAnswers();
+              return;
+            }
+            switchView("exam");
+            $("timerBox").classList.toggle(
+              "hidden",
+              !state.timed || state.stage !== "exam",
+            );
+            $("examStageTitle").textContent =
+              state.stage === "key" ? "ورود کلید پاسخ" : "آزمون";
+            $("examStageSubtitle").textContent =
+              state.stage === "key"
+                ? "کلید صحیح هر سؤال را انتخاب کن."
+                : "وضعیت آزمون قبلی بازیابی شد.";
+            await renderDocument();
+            renderAnswers();
+            if (state.stage === "exam" && state.timed) {
+              tickTimer();
+              state.timerInterval = setInterval(tickTimer, 250);
+            }
+            return;
+          } catch (e) {
+            console.warn("Saved progress could not be restored:", e);
+            state.stage = "setup";
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
